@@ -4,15 +4,16 @@
 # - https://nikitabobko.github.io/AeroSpace/commands#list-windows
 # - https://www.alfredapp.com/help/workflows/inputs/script-filter/json/
 result=$( \
-  aerospace list-windows --workspace visible --format "%{app-pid} %{window-id} %{app-name}" | \
-  while read -r pid id name; \
+  aerospace list-windows --workspace visible --format "%{app-pid} %{window-id} %{app-name} %{window-title}" | \
+  while read -r appPid windowId appName windowTitle; \
   do 
-    path="$(ps -o comm= -p "$pid")"
+    path="$(ps -o comm= -p "$appPid")"
     bundlePath="${path%%\.app*}.app"
 
     echo "{ 
-      \"title\": \"$name\", 
-      \"arg\": \"$id\", 
+      \"title\": \"$appName\", 
+      \"subtitle\": $(echo "$windowTitle" | jq -Rsa .),
+      \"arg\": \"$windowId\", 
       \"icon\": { 
         \"type\": \"fileicon\", 
         \"path\": \"$bundlePath\" 
