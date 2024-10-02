@@ -13,6 +13,7 @@ result=$( \
     echo "{ 
       \"title\": \"$appName\", 
       \"subtitle\": $(echo "$windowTitle" | jq -Rsa .),
+      \"match\": $(echo "$appName | $windowTitle" | jq -Rsa .),
       \"arg\": \"$windowId\", 
       \"icon\": { 
         \"type\": \"fileicon\", 
