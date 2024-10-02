@@ -7,8 +7,8 @@ result=$( \
   aerospace list-windows --workspace visible --format "%{app-pid} %{window-id} %{app-name} %{window-title}" | \
   while read -r appPid windowId appName windowTitle; \
   do 
-    path="$(ps -o comm= -p "$appPid")"
-    bundlePath="${path%%\.app*}.app"
+    appPath="$(ps -o comm= -p "$appPid")"
+    bundlePath="${appPath%%\.app*}.app"
 
     echo "{ 
       \"title\": \"$appName\", 
