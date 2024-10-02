@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>br.com.yuriteixeira.alfred.aerospace.dev</string>
+	<string>br.com.yuriteixeira.alfred.aerospace</string>
 	<key>category</key>
 	<string>Productivity</string>
 	<key>connections</key>
@@ -68,9 +68,63 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>AeroSpace for Alfred - Dev</string>
+	<string>AeroSpace for Alfred</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>./script.sh &gt; windows.json</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>64330120-634F-4B3B-AF1B-F5E2D3C45320</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>49</integer>
+				<key>hotmod</key>
+				<integer>1835008</integer>
+				<key>hotstring</key>
+				<string>Space</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>FF9D1381-7756-456C-A2AA-221F7F8B6066</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -117,60 +171,6 @@
 			<string>B3E834FC-163D-4E82-8842-5379C60A2C2C</string>
 			<key>version</key>
 			<integer>3</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>action</key>
-				<integer>0</integer>
-				<key>argument</key>
-				<integer>0</integer>
-				<key>focusedappvariable</key>
-				<false/>
-				<key>focusedappvariablename</key>
-				<string></string>
-				<key>hotkey</key>
-				<integer>49</integer>
-				<key>hotmod</key>
-				<integer>1835008</integer>
-				<key>hotstring</key>
-				<string>Space</string>
-				<key>leftcursor</key>
-				<false/>
-				<key>modsmode</key>
-				<integer>0</integer>
-				<key>relatedAppsMode</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.hotkey</string>
-			<key>uid</key>
-			<string>FF9D1381-7756-456C-A2AA-221F7F8B6066</string>
-			<key>version</key>
-			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>concurrently</key>
-				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>./script.sh &gt; windows.json</string>
-				<key>scriptargtype</key>
-				<integer>1</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>64330120-634F-4B3B-AF1B-F5E2D3C45320</string>
-			<key>version</key>
-			<integer>2</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -222,15 +222,23 @@ aerospace focus --window-id $query</string>
 	<key>readme</key>
 	<string># AeroSpace for Alfred 
 
+![AeroSpace for Alfred](./docs/assets/screenshot.png)
+
 ## What is AeroSpace
 
 See https://nikitabobko.github.io/AeroSpace/guide
 
 ## Requirements
 
-- AeroSpace (`brew install --cask nikitabobko/tap/aerospace`, see more in their [install instructions](https://github.com/nikitabobko/AeroSpace?tab=readme-ov-file#installation)
+- **AeroSpace** (`brew install --cask nikitabobko/tap/aerospace`, see more in their [install instructions](https://github.com/nikitabobko/AeroSpace?tab=readme-ov-file#installation)
 
-- Jq (`brew install jq`)</string>
+- **Jq** (`brew install jq`)
+
+## How to use
+
+1. Download the workflow from the [releases page](https://github.com/yuriteixeira/aerospace-workflow/releases) and install it by double-clicking the `.alfredworkflow` file.
+
+2. Use the `!aw` (aerospace windows) to list all visible windows and select one to focus. ProTIP™: Set a shortcut like `Cmd + Alt + Ctrl + Space` in the workflow settings to bring the window list up.</string>
 	<key>uidata</key>
 	<dict>
 		<key>64330120-634F-4B3B-AF1B-F5E2D3C45320</key>
@@ -271,11 +279,9 @@ See https://nikitabobko.github.io/AeroSpace/guide
 	</dict>
 	<key>userconfigurationconfig</key>
 	<array/>
-	<key>variablesdontexport</key>
-	<array/>
 	<key>version</key>
 	<string>0.0.1</string>
 	<key>webaddress</key>
-	<string>www.yuriteixeira.com.br</string>
+	<string>https://github.com/yuriteixeira/aerospace-workflow</string>
 </dict>
 </plist>
